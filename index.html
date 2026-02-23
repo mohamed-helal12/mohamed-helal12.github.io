@@ -1,0 +1,2686 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Helal | Senior Electrical Engineer</title>
+    <meta name="description" content="Senior Electrical Engineer specializing in TBM Electrical Systems, Industrial Automation & PLC Programming">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* ========================================
+           CSS VARIABLES & RESET
+        ======================================== */
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #3b82f6;
+            --primary-glow: rgba(37, 99, 235, 0.3);
+            --accent: #f59e0b;
+            --accent-dark: #d97706;
+            --bg-dark: #0a0f1c;
+            --bg-card: #111827;
+            --bg-card-hover: #1a2332;
+            --bg-section: #0d1321;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --border: #1e293b;
+            --border-light: #334155;
+            --success: #10b981;
+            --gradient-1: linear-gradient(135deg, #2563eb, #7c3aed);
+            --gradient-2: linear-gradient(135deg, #f59e0b, #ef4444);
+            --gradient-3: linear-gradient(135deg, #10b981, #2563eb);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.5);
+            --shadow-glow: 0 0 30px rgba(37, 99, 235, 0.2);
+            --radius: 12px;
+            --radius-lg: 20px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* ========================================
+           SCROLLBAR
+        ======================================== */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+
+        /* ========================================
+           ANIMATED BACKGROUND
+        ======================================== */
+        .bg-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .bg-particles .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--primary);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float-particle linear infinite;
+        }
+
+        @keyframes float-particle {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% { transform: translateY(-100px) rotate(720deg); opacity: 0; }
+        }
+
+        /* ========================================
+           NAVBAR
+        ======================================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 15px 0;
+            transition: var(--transition);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            background: rgba(10, 15, 28, 0.8);
+            border-bottom: 1px solid transparent;
+        }
+
+        .navbar.scrolled {
+            padding: 10px 0;
+            background: rgba(10, 15, 28, 0.95);
+            border-bottom-color: var(--border);
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-logo span {
+            color: var(--accent);
+            -webkit-text-fill-color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 8px;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-light);
+            background: rgba(37, 99, 235, 0.1);
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            padding: 5px;
+        }
+
+        .nav-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        .nav-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .nav-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* ========================================
+           HERO SECTION
+        ======================================== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 120px 30px 80px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse-glow 4s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse-glow 5s ease-in-out infinite reverse;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            width: 100%;
+        }
+
+        .hero-content {
+            animation: slideInLeft 1s ease;
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--primary-light);
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease 0.3s both;
+        }
+
+        .hero-badge .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: blink 2s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .hero-title .highlight {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .hero-description {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            max-width: 500px;
+            line-height: 1.8;
+        }
+
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .hero-tags span {
+            padding: 6px 14px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            color: white;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-light);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary-light);
+            background: rgba(37, 99, 235, 0.05);
+            transform: translateY(-3px);
+        }
+
+        /* Hero Image / Visual */
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: slideInRight 1s ease 0.3s both;
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            width: 350px;
+            height: 350px;
+        }
+
+        .hero-image-wrapper .ring {
+            position: absolute;
+            border: 2px solid rgba(37, 99, 235, 0.2);
+            border-radius: 50%;
+            animation: rotate-ring 20s linear infinite;
+        }
+
+        .hero-image-wrapper .ring:nth-child(1) {
+            inset: -20px;
+            border-color: rgba(37, 99, 235, 0.2);
+        }
+        .hero-image-wrapper .ring:nth-child(2) {
+            inset: -40px;
+            border-color: rgba(124, 58, 237, 0.15);
+            animation-direction: reverse;
+            animation-duration: 25s;
+        }
+        .hero-image-wrapper .ring:nth-child(3) {
+            inset: -60px;
+            border-color: rgba(37, 99, 235, 0.1);
+            animation-duration: 30s;
+        }
+
+        @keyframes rotate-ring {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-image-wrapper .ring::after {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: 50%;
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--primary);
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--primary);
+            box-shadow: var(--shadow-glow);
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-card);
+        }
+
+        .hero-image i {
+            font-size: 8rem;
+            color: var(--primary);
+            opacity: 0.6;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Floating Cards around hero image */
+        .floating-card {
+            position: absolute;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.8rem;
+            box-shadow: var(--shadow-md);
+            z-index: 2;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .floating-card:nth-child(5) {
+            top: 10%;
+            right: -30px;
+            animation-delay: 0s;
+        }
+
+        .floating-card:nth-child(6) {
+            bottom: 20%;
+            left: -40px;
+            animation-delay: 1s;
+        }
+
+        .floating-card:nth-child(7) {
+            bottom: 0;
+            right: -20px;
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .floating-card .icon-box {
+            width: 35px;
+            height: 35px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+
+        .floating-card .fc-text span {
+            display: block;
+            color: var(--text-muted);
+            font-size: 0.7rem;
+        }
+
+        .floating-card .fc-text strong {
+            color: var(--text-primary);
+            font-size: 0.85rem;
+        }
+
+        /* Stats bar under hero */
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: -40px auto 0;
+            padding: 0 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 25px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+
+        /* ========================================
+           SECTIONS COMMON
+        ======================================== */
+        section {
+            padding: 100px 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--primary-light);
+            margin-bottom: 15px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title .highlight {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ========================================
+           ABOUT SECTION
+        ======================================== */
+        #about {
+            background: var(--bg-section);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .about-info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .about-info-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 15px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+        }
+
+        .about-info-item i {
+            color: var(--primary-light);
+            font-size: 1.1rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        .about-info-item .info-content span {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .about-info-item .info-content strong {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+        }
+
+        .about-image-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .highlight-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .highlight-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .highlight-card .hc-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            font-size: 1.3rem;
+        }
+
+        .highlight-card h4 {
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+
+        .highlight-card p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* ========================================
+           EXPERIENCE SECTION
+        ======================================== */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), var(--primary-glow), transparent);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            animation: fadeInUp 0.6s ease both;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -33px;
+            top: 25px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 3px solid var(--bg-dark);
+            box-shadow: 0 0 0 3px var(--primary), 0 0 15px var(--primary-glow);
+            z-index: 1;
+        }
+
+        .timeline-item:first-child .timeline-dot {
+            animation: blink 2s ease-in-out infinite;
+        }
+
+        .timeline-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .timeline-role {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .timeline-company {
+            font-size: 1rem;
+            color: var(--primary-light);
+            margin-top: 3px;
+        }
+
+        .timeline-project {
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        .timeline-date {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(37, 99, 235, 0.1);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            color: var(--primary-light);
+            font-family: 'JetBrains Mono', monospace;
+            white-space: nowrap;
+        }
+
+        .timeline-body ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .timeline-body li {
+            position: relative;
+            padding-left: 20px;
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+        }
+
+        .timeline-body li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--primary-light);
+            font-weight: bold;
+        }
+
+        .timeline-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .timeline-tags span {
+            padding: 4px 12px;
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            border-radius: 6px;
+            font-size: 0.75rem;
+            color: var(--primary-light);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* ========================================
+           PROJECTS SECTION
+        ======================================== */
+        #projects {
+            background: var(--bg-section);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .project-image {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image i {
+            font-size: 4rem;
+            opacity: 0.4;
+            color: white;
+        }
+
+        .project-image .project-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-body {
+            padding: 25px;
+        }
+
+        .project-category {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .project-body h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .project-body p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .project-details {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .project-details .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .project-details .detail-item i {
+            color: var(--primary-light);
+            width: 16px;
+            text-align: center;
+            font-size: 0.8rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border);
+        }
+
+        .project-tech span {
+            padding: 3px 10px;
+            background: var(--bg-dark);
+            border-radius: 5px;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* ========================================
+           SKILLS SECTION
+        ======================================== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-category {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            transition: var(--transition);
+        }
+
+        .skill-category:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .skill-category-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .skill-category-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .skill-category-header h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+        }
+
+        .skill-item {
+            margin-bottom: 18px;
+        }
+
+        .skill-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .skill-info span {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+        }
+
+        .skill-info .skill-percent {
+            color: var(--primary-light);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+        }
+
+        .skill-bar {
+            height: 6px;
+            background: var(--bg-dark);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-fill {
+            height: 100%;
+            border-radius: 10px;
+            background: var(--gradient-1);
+            width: 0;
+            transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .skill-tags-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            transition: var(--transition);
+        }
+
+        .skill-tag:hover {
+            border-color: var(--primary);
+            color: var(--primary-light);
+        }
+
+        .skill-tag i {
+            font-size: 0.9rem;
+        }
+
+        /* ========================================
+           CERTIFICATIONS
+        ======================================== */
+        #certifications {
+            background: var(--bg-section);
+        }
+
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .cert-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 25px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            transition: var(--transition);
+        }
+
+        .cert-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .cert-icon {
+            width: 45px;
+            height: 45px;
+            min-width: 45px;
+            border-radius: 10px;
+            background: rgba(37, 99, 235, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: var(--primary-light);
+        }
+
+        .cert-info h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .cert-info .cert-date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* ========================================
+           CONTACT SECTION
+        ======================================== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .contact-info p {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            transition: var(--transition);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .contact-method:hover {
+            border-color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .contact-method .cm-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .contact-method .cm-text span {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .contact-method .cm-text strong {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 35px;
+        }
+
+        .contact-form h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            font-family: inherit;
+            transition: var(--transition);
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 14px;
+            background: var(--gradient-1);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+        }
+
+        /* ========================================
+           FOOTER
+        ======================================== */
+        footer {
+            background: var(--bg-card);
+            border-top: 1px solid var(--border);
+            padding: 40px 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-text {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer-socials a {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .footer-socials a:hover {
+            border-color: var(--primary);
+            color: var(--primary-light);
+            transform: translateY(-3px);
+        }
+
+        /* ========================================
+           BACK TO TOP
+        ======================================== */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            background: var(--gradient-1);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            border: none;
+            box-shadow: var(--shadow-md);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+        }
+
+        /* ========================================
+           ANIMATIONS
+        ======================================== */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========================================
+           RESPONSIVE
+        ======================================== */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content {
+                order: 2;
+            }
+
+            .hero-visual {
+                order: 1;
+            }
+
+            .hero-description {
+                margin: 0 auto 30px;
+            }
+
+            .hero-tags {
+                justify-content: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-image-wrapper {
+                width: 280px;
+                height: 280px;
+            }
+
+            .floating-card {
+                display: none;
+            }
+
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+                margin-top: 20px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: var(--bg-card);
+                flex-direction: column;
+                padding: 80px 30px 30px;
+                border-left: 1px solid var(--border);
+                transition: var(--transition);
+                gap: 5px;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .hero {
+                padding: 100px 20px 60px;
+            }
+
+            .hero-title {
+                font-size: 2.3rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+                padding: 0 20px;
+            }
+
+            .stat-card {
+                padding: 18px;
+            }
+
+            .stat-number {
+                font-size: 1.8rem;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .about-info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline {
+                padding-left: 30px;
+            }
+
+            .timeline-dot {
+                left: -23px;
+            }
+
+            .timeline-header {
+                flex-direction: column;
+            }
+
+            .certs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.9rem;
+            }
+
+            .hero-image-wrapper {
+                width: 220px;
+                height: 220px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .about-highlights {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Background Particles -->
+    <div class="bg-particles" id="particles"></div>
+
+    <!-- ========================================
+         NAVBAR
+    ======================================== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">M<span>.</span>Helal</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========================================
+         HERO SECTION
+    ======================================== -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="dot"></span>
+                    Available for opportunities
+                </div>
+                <h1 class="hero-title">
+                    Hi, I'm <span class="highlight">Mohamed Helal</span>
+                </h1>
+                <p class="hero-subtitle">Senior Electrical Engineer & Team Leader</p>
+                <p class="hero-description">
+                    Results-driven Senior Electrical Engineer with 9+ years of experience in industrial automation,
+                    TBM electrical systems, and large-scale infrastructure projects. Currently leading a 30-member 
+                    electrical team on Cairo Metro Line 4.
+                </p>
+                <div class="hero-tags">
+                    <span>⚡ TBM Systems</span>
+                    <span>🏭 Industrial Automation</span>
+                    <span>🔧 PLC Programming</span>
+                    <span>🚇 Metro Projects</span>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Get in Touch
+                    </a>
+                    <a href="#experience" class="btn btn-outline">
+                        <i class="fas fa-briefcase"></i> View Experience
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-image-wrapper">
+                    <div class="ring"></div>
+                    <div class="ring"></div>
+                    <div class="ring"></div>
+                    <div class="hero-image">
+                        <!-- Replace with your photo: <img src="your-photo.jpg" alt="Mohamed Helal"> -->
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+
+                    <!-- Floating Cards -->
+                    <div class="floating-card">
+                        <div class="icon-box" style="background: rgba(37, 99, 235, 0.15); color: #3b82f6;">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="fc-text">
+                            <span>Experience</span>
+                            <strong>9+ Years</strong>
+                        </div>
+                    </div>
+
+                    <div class="floating-card">
+                        <div class="icon-box" style="background: rgba(16, 185, 129, 0.15); color: #10b981;">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="fc-text">
+                            <span>Team Size</span>
+                            <strong>30 Members</strong>
+                        </div>
+                    </div>
+
+                    <div class="floating-card">
+                        <div class="icon-box" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b;">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="fc-text">
+                            <span>Power Plant</span>
+                            <strong>12 MW</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hero Stats -->
+    <div class="hero-stats">
+        <div class="stat-card animate-on-scroll">
+            <div class="stat-number" data-count="9">0</div>
+            <div class="stat-label">Years of Experience</div>
+        </div>
+        <div class="stat-card animate-on-scroll">
+            <div class="stat-number" data-count="30">0</div>
+            <div class="stat-label">Team Members Led</div>
+        </div>
+        <div class="stat-card animate-on-scroll">
+            <div class="stat-number" data-count="12">0</div>
+            <div class="stat-label">MW Power Plant</div>
+        </div>
+        <div class="stat-card animate-on-scroll">
+            <div class="stat-number" data-count="5">0</div>
+            <div class="stat-label">PLC Platforms</div>
+        </div>
+    </div>
+
+    <!-- ========================================
+         ABOUT SECTION
+    ======================================== -->
+    <section id="about">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-label"><i class="fas fa-user"></i> About Me</div>
+                <h2 class="section-title">Know Me <span class="highlight">Better</span></h2>
+                <p class="section-subtitle">A passionate electrical engineer dedicated to excellence in every project</p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-text animate-on-scroll">
+                    <h3>Powering Egypt's Future 🇪🇬</h3>
+                    <p>
+                        I am a Senior Electrical Engineer with over 9 years of comprehensive experience spanning 
+                        industrial automation, TBM electrical systems, and large-scale infrastructure projects. 
+                        My career reflects a consistent trajectory of growth, from hands-on maintenance engineering 
+                        to leading multidisciplinary teams of 30+ professionals.
+                    </p>
+                    <p>
+                        Currently contributing to <strong>Cairo Metro Line 4</strong> — one of Egypt's most ambitious 
+                        infrastructure projects — where I oversee electrical operations across multiple stations, 
+                        including a 12 MW power plant, STP/WTP systems, and TBM support infrastructure.
+                    </p>
+                    <p>
+                        My expertise spans PLC programming across multiple platforms (Siemens, Allen Bradley, 
+                        Mitsubishi, Fatek), industrial process optimization using PID control, and electrical 
+                        system design, installation, testing, and commissioning.
+                    </p>
+
+                    <div class="about-info-grid">
+                        <div class="about-info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="info-content">
+                                <span>Location</span>
+                                <strong>Mansoura, Egypt</strong>
+                            </div>
+                        </div>
+                        <div class="about-info-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div class="info-content">
+                                <span>Education</span>
+                                <strong>B.Sc. Electrical Eng.</strong>
+                            </div>
+                        </div>
+                        <div class="about-info-item">
+                            <i class="fas fa-building"></i>
+                            <div class="info-content">
+                                <span>University</span>
+                                <strong>Al Azhar University</strong>
+                            </div>
+                        </div>
+                        <div class="about-info-item">
+                            <i class="fas fa-language"></i>
+                            <div class="info-content">
+                                <span>Languages</span>
+                                <strong>Arabic & English</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-image-section animate-on-scroll">
+                    <div class="about-highlights">
+                        <div class="highlight-card">
+                            <div class="hc-icon" style="background: rgba(37, 99, 235, 0.15); color: #3b82f6;">
+                                <i class="fas fa-microchip"></i>
+                            </div>
+                            <h4>PLC Expert</h4>
+                            <p>5 platforms mastered including Siemens & AB</p>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="hc-icon" style="background: rgba(16, 185, 129, 0.15); color: #10b981;">
+                                <i class="fas fa-users-cog"></i>
+                            </div>
+                            <h4>Team Leader</h4>
+                            <p>Managing 30+ engineers & technicians</p>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="hc-icon" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b;">
+                                <i class="fas fa-industry"></i>
+                            </div>
+                            <h4>Industrial Expert</h4>
+                            <p>Factory automation & process optimization</p>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="hc-icon" style="background: rgba(239, 68, 68, 0.15); color: #ef4444;">
+                                <i class="fas fa-hard-hat"></i>
+                            </div>
+                            <h4>Mega Projects</h4>
+                            <p>Cairo Metro Line 4 infrastructure</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         EXPERIENCE SECTION
+    ======================================== -->
+    <section id="experience">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-label"><i class="fas fa-briefcase"></i> Career Path</div>
+                <h2 class="section-title">Work <span class="highlight">Experience</span></h2>
+                <p class="section-subtitle">My professional journey from maintenance engineer to team leader</p>
+            </div>
+
+            <div class="timeline">
+                <!-- Experience 1 -->
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div>
+                                <div class="timeline-role">Senior Electrical Engineer — Team Leader</div>
+                                <div class="timeline-company">
+                                    <i class="fas fa-building"></i> Concord for Engineering & Construction
+                                </div>
+                                <div class="timeline-project">
+                                    🚇 Cairo Metro Line 4 — Phase 1
+                                </div>
+                            </div>
+                            <span class="timeline-date">
+                                <i class="fas fa-calendar"></i> Mar 2024 — Present
+                            </span>
+                        </div>
+                        <div class="timeline-body">
+                            <ul>
+                                <li>Lead and manage a 30-member electrical team across multiple stations, including a 12 MW Power Plant, STP/WTP, grout plant, and electrical maintenance workshop.</li>
+                                <li>Supervise electrical works for stations and utility systems supporting TBM operations, including power distribution, control panels, and safety systems.</li>
+                                <li>Execute installation, testing, and commissioning of STP and WTP electrical systems, ensuring compliance with project specifications.</li>
+                                <li>Conduct inspections and troubleshoot electrical systems, minimizing downtime and ensuring optimal system performance.</li>
+                                <li>Serve as the primary electrical point of contact, providing regular updates on project status, risks, and achievements to stakeholders.</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-tags">
+                            <span>TBM Systems</span>
+                            <span>Power Distribution</span>
+                            <span>STP/WTP</span>
+                            <span>Team Leadership</span>
+                            <span>12 MW</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience 2 -->
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div>
+                                <div class="timeline-role">Senior Electrical Engineer — Team Leader</div>
+                                <div class="timeline-company">
+                                    <i class="fas fa-industry"></i> Pack Line Factory for Industrial Development
+                                </div>
+                            </div>
+                            <span class="timeline-date">
+                                <i class="fas fa-calendar"></i> Jun 2023 — Feb 2024
+                            </span>
+                        </div>
+                        <div class="timeline-body">
+                            <ul>
+                                <li>Led and managed a team of engineers, providing guidance, mentorship, and performance evaluations to ensure team effectiveness.</li>
+                                <li>Developed and optimized single facer machines, improving corrugated paper quality and production efficiency through PID-based temperature and pressure control.</li>
+                                <li>Analyzed, improved, tested, inspected, and troubleshot electrical systems and components for industrial machinery.</li>
+                                <li>Designed and implemented optimization methods that enhanced system efficiency, reliability, and operational safety.</li>
+                                <li>Trained and supervised new hires and junior engineers.</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-tags">
+                            <span>PID Control</span>
+                            <span>Machine Optimization</span>
+                            <span>Team Management</span>
+                            <span>Industrial Automation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience 3 -->
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div>
+                                <div class="timeline-role">Electrical Maintenance Engineer</div>
+                                <div class="timeline-company">
+                                    <i class="fas fa-industry"></i> Pack Line Factory for Industrial Development
+                                </div>
+                            </div>
+                            <span class="timeline-date">
+                                <i class="fas fa-calendar"></i> Jun 2016 — Jun 2023
+                            </span>
+                        </div>
+                        <div class="timeline-body">
+                            <ul>
+                                <li>Maintained and repaired electrical systems and components for various industrial machines and equipment.</li>
+                                <li>Implemented and followed preventive and corrective maintenance plans and schedules.</li>
+                                <li>Collaborated with cross-functional teams to ensure smooth factory operations and production continuity.</li>
+                                <li>Implemented PLC and HMI systems to enhance automation, operational efficiency, and production stability.</li>
+                                <li>Developed production lines in the company, contributing to increased output and reduced downtime.</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-tags">
+                            <span>PLC Programming</span>
+                            <span>HMI Systems</span>
+                            <span>Preventive Maintenance</span>
+                            <span>Production Lines</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content" style="border-left: 3px solid var(--accent);">
+                        <div class="timeline-header">
+                            <div>
+                                <div class="timeline-role">B.Sc. Electrical Engineering</div>
+                                <div class="timeline-company">
+                                    <i class="fas fa-university"></i> Al Azhar University — Faculty of Engineering
+                                </div>
+                            </div>
+                            <span class="timeline-date">
+                                <i class="fas fa-graduation-cap"></i> Graduated 2014
+                            </span>
+                        </div>
+                        <div class="timeline-body">
+                            <ul>
+                                <li>Bachelor of Electrical Engineering with focus on power systems and electrical installations.</li>
+                                <li>Graduation Project: Electrical Installation and Distribution Systems.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         PROJECTS SECTION
+    ======================================== -->
+    <section id="projects">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-label"><i class="fas fa-project-diagram"></i> Portfolio</div>
+                <h2 class="section-title">Featured <span class="highlight">Projects</span></h2>
+                <p class="section-subtitle">Key projects that showcase my expertise and impact</p>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card animate-on-scroll">
+                    <div class="project-image" style="background: var(--gradient-1);">
+                        <i class="fas fa-subway"></i>
+                        <div class="project-overlay">
+                            <span style="color: white; font-weight: 600;">🚇 Mega Project</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <span class="project-category" style="background: rgba(37, 99, 235, 0.15); color: #3b82f6;">Infrastructure</span>
+                        <h3>Cairo Metro Line 4 — Phase 1</h3>
+                        <p>Leading electrical operations for one of Egypt's most significant infrastructure projects.</p>
+                        <div class="project-details">
+                            <div class="detail-item">
+                                <i class="fas fa-bolt"></i>
+                                <span>12 MW Power Plant — Installation & Commissioning</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-water"></i>
+                                <span>STP & WTP Electrical Systems</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-users"></i>
+                                <span>30-Member Electrical Team Management</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-cogs"></i>
+                                <span>TBM Support & Utility Systems</span>
+                            </div>
+                        </div>
+                        <div class="project-tech">
+                            <span>Power Distribution</span>
+                            <span>Control Panels</span>
+                            <span>Safety Systems</span>
+                            <span>Commissioning</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card animate-on-scroll">
+                    <div class="project-image" style="background: var(--gradient-2);">
+                        <i class="fas fa-cogs"></i>
+                        <div class="project-overlay">
+                            <span style="color: white; font-weight: 600;">⚙️ Optimization</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <span class="project-category" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b;">Industrial Automation</span>
+                        <h3>Single Facer Machine Optimization</h3>
+                        <p>Engineered PID-based control systems to optimize corrugated paper production quality and efficiency.</p>
+                        <div class="project-details">
+                            <div class="detail-item">
+                                <i class="fas fa-temperature-high"></i>
+                                <span>PID Temperature & Pressure Control</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Production Efficiency Improvement</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Quality Enhancement for Corrugated Paper</span>
+                            </div>
+                        </div>
+                        <div class="project-tech">
+                            <span>PID Control</span>
+                            <span>PLC</span>
+                            <span>HMI</span>
+                            <span>Sensors</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card animate-on-scroll">
+                    <div class="project-image" style="background: var(--gradient-3);">
+                        <i class="fas fa-robot"></i>
+                        <div class="project-overlay">
+                            <span style="color: white; font-weight: 600;">🤖 Automation</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <span class="project-category" style="background: rgba(16, 185, 129, 0.15); color: #10b981;">Automation</span>
+                        <h3>Production Line Automation</h3>
+                        <p>Designed and implemented PLC & HMI systems to automate production lines, enhancing operational efficiency.</p>
+                        <div class="project-details">
+                            <div class="detail-item">
+                                <i class="fas fa-microchip"></i>
+                                <span>PLC Programming & Integration</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-desktop"></i>
+                                <span>HMI Design & Implementation</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <span>Reduced Manual Intervention</span>
+                            </div>
+                        </div>
+                        <div class="project-tech">
+                            <span>Siemens PLC</span>
+                            <span>HMI</span>
+                            <span>VFD</span>
+                            <span>Sensors</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SKILLS SECTION
+    ======================================== -->
+    <section id="skills">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-label"><i class="fas fa-tools"></i> Expertise</div>
+                <h2 class="section-title">Skills & <span class="highlight">Tools</span></h2>
+                <p class="section-subtitle">Technical competencies built over 9+ years of hands-on experience</p>
+            </div>
+
+            <div class="skills-grid">
+                <!-- PLC Programming -->
+                <div class="skill-category animate-on-scroll">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon" style="background: rgba(37, 99, 235, 0.15); color: #3b82f6;">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <h3>PLC Programming</h3>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Siemens (SIMATIC Manager / TIA Portal)</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" data-width="90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Allen Bradley (RS Logix)</span>
+                            <span class="skill-percent">70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" data-width="70%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Mitsubishi (GX Developer)</span>
+                            <span class="skill-percent">65%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" data-width="65%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Fatek (WinProLadder)</span>
+                            <span class="skill-percent">70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" data-width="70%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Electrical Systems -->
+                <div class="skill-category animate-on-scroll">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b;">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Electrical Systems</h3>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Power Distribution & Protection</span>
+                            <span class="skill-percent">95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" data-width="95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Electrical Installation</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" data-width="90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>STP/WTP Electrical Systems</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" data-width="80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Testing & Commissioning</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" data-width="85%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Software & Tools -->
+                <div class="skill-category animate-on-scroll">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon" style="background: rgba(16, 185, 129, 0.15); color: #10b981;">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Software & Tools</h3>
+                    </div>
+                    <div class="skill-tags-list">
+                        <div class="skill-tag"><i class="fab fa-python"></i> Python</div>
+                        <div class="skill-tag"><i class="fas fa-file-excel"></i> Advanced Excel</div>
+                        <div class="skill-tag"><i class="fas fa-file-powerpoint"></i> PowerPoint</div>
+                        <div class="skill-tag"><i class="fas fa-desktop"></i> HMI Design</div>
+                        <div class="skill-tag"><i class="fas fa-project-diagram"></i> SCADA</div>
+                        <div class="skill-tag"><i class="fas fa-sliders-h"></i> PID Tuning</div>
+                        <div class="skill-tag"><i class="fas fa-tachometer-alt"></i> VFD Configuration</div>
+                        <div class="skill-tag"><i class="fas fa-shield-alt"></i> Safety Systems</div>
+                    </div>
+                </div>
+
+                <!-- Leadership -->
+                <div class="skill-category animate-on-scroll">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon" style="background: rgba(124, 58, 237, 0.15); color: #7c3aed;">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Leadership & Soft Skills</h3>
+                    </div>
+                    <div class="skill-tags-list">
+                        <div class="skill-tag"><i class="fas fa-users-cog"></i> Team Leadership (30+)</div>
+                        <div class="skill-tag"><i class="fas fa-tasks"></i> Project Coordination</div>
+                        <div class="skill-tag"><i class="fas fa-chalkboard-teacher"></i> Mentorship & Training</div>
+                        <div class="skill-tag"><i class="fas fa-comments"></i> Stakeholder Communication</div>
+                        <div class="skill-tag"><i class="fas fa-search"></i> Troubleshooting</div>
+                        <div class="skill-tag"><i class="fas fa-lightbulb"></i> Problem Solving</div>
+                        <div class="skill-tag"><i class="fas fa-clipboard-check"></i> Quality Assurance</div>
+                        <div class="skill-tag"><i class="fas fa-hard-hat"></i> Safety Compliance</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         CERTIFICATIONS SECTION
+    ======================================== -->
+    <section id="certifications">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-label"><i class="fas fa-certificate"></i> Credentials</div>
+                <h2 class="section-title">Certifications & <span class="highlight">Training</span></h2>
+                <p class="section-subtitle">Continuous learning and professional development</p>
+            </div>
+
+            <div class="certs-grid">
+                <div class="cert-card animate-on-scroll">
+                    <div class="cert-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <div class="cert-info">
+                        <h4>Control Design & PLC Programming (ISA-88)</h4>
+                        <span class="cert-date"><i class="fas fa-calendar-alt"></i> June 2025</span>
+                    </div>
+                </div>
+
+                <div class="cert-card animate-on-scroll">
+                    <div class="cert-icon">
+                        <i class="fas fa-car-battery"></i>
+                    </div>
+                    <div class="cert-info">
+                        <h4>Electrical Diesel Generator</h4>
+                        <span class="cert-date"><i class="fas fa-calendar-alt"></i> June 2025</span>
+                    </div>
+                </div>
+
+                <div class="cert-card animate-on-scroll">
+                    <div class="cert-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <div class="cert-info">
+                        <h4>Allen Bradley PLC Basic</h4>
+                        <span class="cert-date"><i class="fas fa-certificate"></i> Completed</span>
+                    </div>
+                </div>
+
+                <div class="cert-card animate-on-scroll">
+                    <div class="cert-icon">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <div class="cert-info">
+                        <h4>Basic Pneumatic System</h4>
+                        <span class="cert-date"><i class="fas fa-certificate"></i> Completed</span>
+                    </div>
+                </div>
+
+                <div class="cert-card animate-on-scroll">
+                    <div class="cert-icon">
+                        <i class="fas fa-oil-can"></i>
+                    </div>
+                    <div class="cert-info">
+                        <h4>Basic Hydraulic System</h4>
+                        <span class="cert-date"><i class="fas fa-certificate"></i> Completed</span>
+                    </div>
+                </div>
+
+                <div class="cert-card animate-on-scroll">
+                    <div class="cert-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <div class="cert-info">
+                        <h4>Industrial PLC Basic & Advanced Applications</h4>
+                        <span class="cert-date"><i class="fas fa-calendar-alt"></i> Aug — Sep 2013</span>
+                    </div>
+                </div>
+
+                <div class="cert-card animate-on-scroll">
+                    <div class="cert-icon">
+                        <i class="fas fa-circuit-board"></i>
+                    </div>
+                    <div class="cert-info">
+                        <h4>PCB Design (Printed Circuit Board)</h4>
+                        <span class="cert-date"><i class="fas fa-calendar-alt"></i> Sep 2013</span>
+                    </div>
+                </div>
+
+                <div class="cert-card animate-on-scroll">
+                    <div class="cert-icon">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <div class="cert-info">
+                        <h4>Electrical Power System Distribution</h4>
+                        <span class="cert-date"><i class="fas fa-calendar-alt"></i> Nov 2013</span>
+                    </div>
+                </div>
+
+                <div class="cert-card animate-on-scroll">
+                    <div class="cert-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <div class="cert-info">
+                        <h4>Talkha Power Plant Training</h4>
+                        <span class="cert-date"><i class="fas fa-calendar-alt"></i> July 2012</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         CONTACT SECTION
+    ======================================== -->
+    <section id="contact">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-label"><i class="fas fa-envelope"></i> Get in Touch</div>
+                <h2 class="section-title">Let's <span class="highlight">Connect</span></h2>
+                <p class="section-subtitle">Have a project or opportunity? I'd love to hear from you</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info animate-on-scroll">
+                    <h3>Contact Information</h3>
+                    <p>Feel free to reach out for collaborations, opportunities, or just a friendly chat about electrical engineering and automation.</p>
+
+                    <div class="contact-methods">
+                        <a href="mailto:mohamedhelal12@gmail.com" class="contact-method">
+                            <div class="cm-icon" style="background: rgba(239, 68, 68, 0.15); color: #ef4444;">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="cm-text">
+                                <span>Email</span>
+                                <strong>mohamedhelal12@gmail.com</strong>
+                            </div>
+                        </a>
+
+                        <a href="tel:+201063962486" class="contact-method">
+                            <div class="cm-icon" style="background: rgba(16, 185, 129, 0.15); color: #10b981;">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="cm-text">
+                                <span>Phone</span>
+                                <strong>+20 106 396 2486</strong>
+                            </div>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/mohamedhelal12" target="_blank" class="contact-method">
+                            <div class="cm-icon" style="background: rgba(37, 99, 235, 0.15); color: #3b82f6;">
+                                <i class="fab fa-linkedin-in"></i>
+                            </div>
+                            <div class="cm-text">
+                                <span>LinkedIn</span>
+                                <strong>linkedin.com/in/mohamedhelal12</strong>
+                            </div>
+                        </a>
+
+                        <a href="https://wa.me/201063962486" target="_blank" class="contact-method">
+                            <div class="cm-icon" style="background: rgba(37, 211, 102, 0.15); color: #25d366;">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="cm-text">
+                                <span>WhatsApp</span>
+                                <strong>+20 106 396 2486</strong>
+                            </div>
+                        </a>
+
+                        <div class="contact-method">
+                            <div class="cm-icon" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b;">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="cm-text">
+                                <span>Location</span>
+                                <strong>Mansoura, Egypt</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form animate-on-scroll">
+                    <h3>Send a Message</h3>
+                    <form id="contactForm" onsubmit="handleSubmit(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" placeholder="John Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="Project Inquiry" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Tell me about your project or opportunity..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         FOOTER
+    ======================================== -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-text">
+                © 2025 Mohamed Helal. All rights reserved. | Senior Electrical Engineer
+            </div>
+            <div class="footer-socials">
+                <a href="https://www.linkedin.com/in/mohamedhelal12" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="mailto:mohamedhelal12@gmail.com" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://wa.me/201063962486" target="_blank" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="tel:+201063962486" title="Phone">
+                    <i class="fas fa-phone"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top: 0})">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- ========================================
+         JAVASCRIPT
+    ======================================== -->
+    <script>
+        // ========================================
+        // PARTICLES BACKGROUND
+        // ========================================
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const count = 50;
+            for (let i = 0; i < count; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDuration = (Math.random() * 15 + 10) + 's';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.width = (Math.random() * 3 + 1) + 'px';
+                particle.style.height = particle.style.width;
+                container.appendChild(particle);
+            }
+        }
+        createParticles();
+
+        // ========================================
+        // NAVBAR SCROLL EFFECT
+        // ========================================
+        const navbar = document.getElementById('navbar');
+        const backToTop = document.getElementById('backToTop');
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+
+            // Navbar background
+            if (scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            // Back to top button
+            if (scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+
+            // Active nav link
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // ========================================
+        // MOBILE NAVIGATION
+        // ========================================
+        const navToggle = document.getElementById('navToggle');
+        const navLinksContainer = document.getElementById('navLinks');
+
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navLinksContainer.classList.toggle('active');
+        });
+
+        // Close mobile menu on link click
+        navLinksContainer.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navLinksContainer.classList.remove('active');
+            });
+        });
+
+        // ========================================
+        // SCROLL ANIMATIONS
+        // ========================================
+        const animateElements = document.querySelectorAll('.animate-on-scroll');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('animated');
+                    }, index * 100);
+
+                    // Animate skill bars
+                    const skillBars = entry.target.querySelectorAll('.skill-fill');
+                    skillBars.forEach(bar => {
+                        setTimeout(() => {
+                            bar.style.width = bar.getAttribute('data-width');
+                        }, 500);
+                    });
+
+                    // Animate counters
+                    const counters = entry.target.querySelectorAll('.stat-number');
+                    counters.forEach(counter => {
+                        animateCounter(counter);
+                    });
+                }
+            });
+        }, {
+            threshold: 0.2,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        animateElements.forEach(el => observer.observe(el));
+
+        // ========================================
+        // COUNTER ANIMATION
+        // ========================================
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute('data-count'));
+            if (!target) return;
+
+            let current = 0;
+            const increment = target / 50;
+            const duration = 2000;
+            const stepTime = duration / 50;
+
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current) + '+';
+            }, stepTime);
+        }
+
+        // ========================================
+        // CONTACT FORM HANDLER
+        // ========================================
+        function handleSubmit(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            // Option 1: Open email client
+            const mailtoLink = `mailto:mohamedhelal12@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)}`;
+            window.open(mailtoLink);
+
+            // Show success feedback
+            const btn = e.target.querySelector('.btn-submit');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+            btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style.background = '';
+                e.target.reset();
+            }, 3000);
+        }
+
+        // ========================================
+        // SMOOTH REVEAL ON LOAD
+        // ========================================
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+        });
+
+        // ========================================
+        // TYPING EFFECT (Optional Enhancement)
+        // ========================================
+        const typingTexts = ['TBM Electrical Systems', 'Industrial Automation', 'PLC Programming', 'Team Leadership'];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeEffect() {
+            const element = document.querySelector('.hero-subtitle');
+            if (!element) return;
+
+            const currentText = typingTexts[textIndex];
+            const baseText = 'Senior Electrical Engineer | ';
+
+            if (isDeleting) {
+                charIndex--;
+            } else {
+                charIndex++;
+            }
+
+            element.textContent = baseText + currentText.substring(0, charIndex);
+
+            let speed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === currentText.length) {
+                speed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % typingTexts.length;
+                speed = 500;
+            }
+
+            setTimeout(typeEffect, speed);
+        }
+
+        // Start typing effect after a delay
+        setTimeout(typeEffect, 2000);
+    </script>
+
+</body>
+</html>
